@@ -9,7 +9,8 @@ describe("hello component", () => {
     ReactDOM.render(<Hello name='Tester' age={2} index={1} changeName={console.log} />, div)
   });
 
-  it("should render shallow", () => {
-    shallow(<Hello name='Tester' age={2} index={1} changeName={console.log} />);
+  it("should render shallow and match the snapshot", () => {
+    const rendered = shallow(<Hello name='Tester' age={2} index={1} changeName={console.log} />);
+    expect(rendered).toMatchSnapshot();
   })
 });
